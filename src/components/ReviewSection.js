@@ -1,14 +1,16 @@
+// src/components/ReviewSection.js
+
 import React from 'react';
 
 const ReviewSection = ({ reviews }) => {
     const totalReviews = reviews.length;
     const positiveReviews = reviews.filter(review => review.rating >= 4).length;
-    const percentage = totalReviews ? (positiveReviews / totalReviews) * 100 : 0;
+    const ratingPercentage = totalReviews > 0 ? (positiveReviews / totalReviews) * 100 : 0;
 
     return (
         <div>
-            <h3>Reviews</h3>
-            <p>{`${percentage.toFixed(2)}% of reviews are positive.`}</p>
+            <h3>Customer Reviews</h3>
+            <p>{totalReviews} Reviews - {ratingPercentage.toFixed(2)}% Positive</p>
             {/* Render reviews here */}
         </div>
     );
